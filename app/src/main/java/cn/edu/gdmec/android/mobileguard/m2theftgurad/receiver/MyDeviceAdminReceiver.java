@@ -5,12 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * Created by Curtain_Liang on 2017/10/24.
+ * Created by Administrator on 2017/10/23 0023.
  */
 
-public class MyDeviceAdminReceiver extends BroadcastReceiver{
+public class MyDeviceAdminReceiver extends BroadcastReceiver {
     @Override
-    public void onReceive(Context context, Intent intent) {
-        //一定要把向导创建的代码删掉，留下一个空方法
+    public void onReceive(Context context, Intent intent){
+       //一定要把向导创建的代码删掉，留下一个空方法
     }
+
 }
