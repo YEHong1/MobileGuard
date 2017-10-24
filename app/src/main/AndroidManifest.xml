@@ -19,16 +19,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">
+            <!--注释部分为检查软件打开戒面第一件事是否检查版本是否最新，移到下面第35行，即可打开软件直接打开主见面-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+        </activity>
+        <activity
+            android:name=".m1home.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".m1home.HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme"></activity>
         <activity android:name=".m2theftgurad.utils.Setup1Activity"/>
         <activity android:name=".m2theftgurad.utils.Setup2Activity"/>
         <activity android:name=".m2theftgurad.utils.Setup3Activity"/>
