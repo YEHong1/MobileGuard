@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftgurad;
+package cn.edu.gdmec.android.mobileguard.m2theftgurad.utils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,6 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.adapter.ContactAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.entity.Contactlnfo;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.ContactlnfoParser;
 
 /**
  * Created by Administrator on 2017/10/20 0020.

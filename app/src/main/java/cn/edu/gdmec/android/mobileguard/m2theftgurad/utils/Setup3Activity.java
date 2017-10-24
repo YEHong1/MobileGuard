@@ -10,7 +10,6 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.ContactSelectActivity;
 
 public class Setup3Activity extends BaseSetUpActivity implements View.OnClickListener {
     private EditText mInputPhone;
