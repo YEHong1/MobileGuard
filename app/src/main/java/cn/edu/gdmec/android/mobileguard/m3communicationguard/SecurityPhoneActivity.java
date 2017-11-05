@@ -31,7 +31,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     private BlackNumberDao dao;
     private ListView mListView;
     private  int pagenumber=0;
-    private  int pagesize=4;
+    private  int pagesize=15;
     private  int totalNumber;
     private List<BlackContactInfo> pageBlackNumber=new ArrayList<BlackContactInfo>();
     private BlackContactAdapter adapter;
