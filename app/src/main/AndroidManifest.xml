@@ -14,7 +14,10 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <!--通讯卫士部分-->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
     <application
         android:name=".App"
@@ -38,11 +41,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".m2theftgurad.utils.Setup1Activity"/>
-        <activity android:name=".m2theftgurad.utils.Setup2Activity"/>
-        <activity android:name=".m2theftgurad.utils.Setup3Activity"/>
-        <activity android:name=".m2theftgurad.utils.Setup4Activity"/>
-        <activity android:name=".m2theftgurad.utils.LostFindActivity"/>
+        <activity android:name=".m2theftgurad.Setup1Activity"/>
+        <activity android:name=".m2theftgurad.Setup2Activity"/>
+        <activity android:name=".m2theftgurad.Setup3Activity"/>
+        <activity android:name=".m2theftgurad.Setup4Activity"/>
+        <activity android:name=".m2theftgurad.LostFindActivity"/>
         <receiver android:name="m2theftgurad.receiver.BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
@@ -78,6 +81,32 @@
             </intent-filter>
         </receiver>
 
+        <!--通讯卫士部分-->
+
+        <activity android:name=".m3communicationguard.AddBlackNumberActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+
+
+
+        <activity android:name=".m3communicationguard.SecurityPhoneActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+        <receiver android:name=".m3communicationguard.reveiver.InterceptCallReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".m3communicationguard.reveiver.InterceptSmsReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

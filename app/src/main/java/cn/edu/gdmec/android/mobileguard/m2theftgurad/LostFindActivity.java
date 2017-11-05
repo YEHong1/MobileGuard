@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftgurad.utils;
+package cn.edu.gdmec.android.mobileguard.m2theftgurad;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

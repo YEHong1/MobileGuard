@@ -1,10 +1,11 @@
-package cn.edu.gdmec.android.mobileguard.m2theftgurad.utils;
+package cn.edu.gdmec.android.mobileguard.m2theftgurad;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -15,6 +16,7 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.adapter.ContactAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.entity.Contactlnfo;
+import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.ContactlnfoParser;
 
 /**
  * Created by Administrator on 2017/10/20 0020.
@@ -39,6 +41,10 @@ switch (msg.what){
 @Override
     protected  void onCreate(Bundle savedInstanceState){
     super.onCreate(savedInstanceState);
+
+    /*尝试，可删除行*/
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+
     setContentView(R.layout.activity_contact_select);
     initView();
 }
@@ -63,6 +69,8 @@ private void initView(){
             Contactlnfo item=(Contactlnfo) adapter.getItem(position);
             Intent intent=new Intent();
             intent.putExtra("phone",item.phone);
+            /*手机通讯从联系人添加黑名单，获取联系人名字*/
+            intent.putExtra("name",item.name);
             setResult(0,intent);
             finish();
         }
