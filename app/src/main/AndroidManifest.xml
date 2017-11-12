@@ -41,11 +41,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".m2theftgurad.Setup1Activity"/>
-        <activity android:name=".m2theftgurad.Setup2Activity"/>
-        <activity android:name=".m2theftgurad.Setup3Activity"/>
-        <activity android:name=".m2theftgurad.Setup4Activity"/>
-        <activity android:name=".m2theftgurad.LostFindActivity"/>
+        <activity android:name=".m2theftgurad.utils.Setup1Activity"/>
+        <activity android:name=".m2theftgurad.utils.Setup2Activity"/>
+        <activity android:name=".m2theftgurad.utils.Setup3Activity"/>
+        <activity android:name=".m2theftgurad.utils.Setup4Activity"/>
+        <activity android:name=".m2theftgurad.utils.LostFindActivity"/>
         <receiver android:name="m2theftgurad.receiver.BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
@@ -107,6 +107,12 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+
+
+        //管家模块2017.11.06
+        <activity android:name=".m4appmanager.AppManagerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
     </application>
 
 </manifest>

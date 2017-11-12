@@ -18,7 +18,7 @@ import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.dialog.SetUpPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.receiver.MyDeviceAdminReceiver;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.LostFindActivity;
+import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.MD5Utils;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;

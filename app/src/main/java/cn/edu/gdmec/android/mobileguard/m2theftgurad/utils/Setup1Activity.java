@@ -1,10 +1,11 @@
-package cn.edu.gdmec.android.mobileguard.m2theftgurad;
+package cn.edu.gdmec.android.mobileguard.m2theftgurad.utils;
 
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
+import cn.edu.gdmec.android.mobileguard.m2theftgurad.BaseSetUpActivity;
 
 /**
  * Created by Administrator on 2017/10/13 0013.
