@@ -61,19 +61,6 @@ public class EngineUtils {
         Intent it = new Intent();
         it.setAction(Intent.ACTION_APPLICATION_PREFERENCES);
         context.startActivity(it);
-//        Intent intent = new Intent();
-//        intent.setAction("android..APPLICATION_DETAILS_SETTINGS");
-//        intent.addCategory(Intent.CATEGORY_DEFAULT);
-//        intent.setData(Uri.parse("package:" + appInfo.packageName));
-
-//        new AlertDialog.Builder(AppManagerActivity.this)
-//                 .setTitle("MobileGuard")
-//                 .setMessage("Version:"+)
-//                 .setMessage("Install time:"+InstallTime)
-//                 .setMessage("Certificate issuer:"+certificate)
-//                 .setMessage("Permissions:"+permission)
-//                 .show();
-
 
     }
 
