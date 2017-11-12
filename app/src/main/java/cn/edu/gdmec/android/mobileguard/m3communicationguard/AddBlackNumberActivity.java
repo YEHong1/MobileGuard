@@ -94,6 +94,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
                     }else  if (!mSmsCB.isChecked()&mTelCB.isChecked()){
                         //电话拦截
                         blackContactInfo.mode=1;
+
                     }else{
                         Toast.makeText(this,"请选择拦截模式", Toast.LENGTH_LONG).show();
                         return;

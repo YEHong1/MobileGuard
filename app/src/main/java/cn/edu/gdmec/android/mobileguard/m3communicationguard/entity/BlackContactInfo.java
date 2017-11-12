@@ -13,7 +13,6 @@ public class BlackContactInfo {
 //    黑名单拦截方式
     public String mytype;
     public String getModeString(int mode){
-
         switch (mode){
             case 1:
                 return "电话拦截";

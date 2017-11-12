@@ -41,7 +41,6 @@ public boolean add(BlackContactInfo blackContactInfo){
     long rowid=db.insert("blacknumber",null,values);
     if (rowid==-1){//插入数据不成功
         return false;
-
     }else{
         return  true;
     }

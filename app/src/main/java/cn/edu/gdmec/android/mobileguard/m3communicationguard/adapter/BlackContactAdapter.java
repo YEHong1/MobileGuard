@@ -96,5 +96,6 @@ public class BlackContactAdapter extends BaseAdapter {
             }
         });
         return view;
+
     }
 }
