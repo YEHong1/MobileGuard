@@ -1,11 +1,14 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.Toast;
 
+import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 
 /**
@@ -45,23 +48,30 @@ public class EngineUtils {
         context.startActivity(intent);
     }
     //卸载应用
-    public static void uninstallApplication(Context context, AppInfo appInfo){
+    public static void uninstallApplication(Context context,AppInfo appInfo){
         if (appInfo.isUserApp){
             Intent intent=new Intent();
             intent.setAction(Intent.ACTION_DELETE);
             intent.setData(Uri.parse("package:"+appInfo.packageName));
             context.startActivity(intent);
         }else{
-            Toast.makeText(context,"系统应用无法卸载", Toast.LENGTH_LONG).show();
+            Toast.makeText(context,"系统应用无法卸载",Toast.LENGTH_LONG).show();
         }
     }
     //显示app信息
-    public static void showaboutApplication(Context context, AppInfo appInfo){
-
-        Intent it = new Intent();
-        it.setAction(Intent.ACTION_APPLICATION_PREFERENCES);
-        context.startActivity(it);
-
+    public static void showaboutApplication(Context context,AppInfo appInfo) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(appInfo.appName);
+        builder.setMessage("Version："+appInfo.mVersion+
+                "\nInstall time："+appInfo.InstallTime+
+                "\nCertificate issuer："+appInfo.certificate+
+                "\n\nPermissions："+appInfo.permission);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
     }
-
 }

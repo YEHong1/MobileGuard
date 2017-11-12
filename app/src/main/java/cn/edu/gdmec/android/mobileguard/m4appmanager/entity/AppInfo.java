@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 public class AppInfo {
 
     public String packageName;
-//    应用程序包名
+    //    应用程序包名
     public Drawable icon;
     //app图标
     public String appName;
@@ -24,14 +24,18 @@ public class AppInfo {
     //是否用户应用
     public boolean isSelected=false;
     //是否选中，默认为false
-/**拿到app位置字符串*/
+    public String mVersion;
+    public String InstallTime;
+    public String certificate;
+    public String permission;
+    /**拿到app位置字符串*/
 
-public String getAppLoaction(boolean isInRoom){
-    if (isInRoom){
-        return "手机内存";
+    public String getAppLoaction(boolean isInRoom){
+        if (isInRoom){
+            return "手机内存";
 
-    }else {
-        return "外部存储";
+        }else {
+            return "外部存储";
+        }
     }
-}
 }
