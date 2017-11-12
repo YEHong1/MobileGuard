@@ -21,6 +21,7 @@ import cn.edu.gdmec.android.mobileguard.m2theftgurad.receiver.MyDeviceAdminRecei
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.MD5Utils;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
+import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
@@ -64,6 +65,9 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 1:
                         startActivity(SecurityPhoneActivity.class);
+                        break;
+                    case 2:
+                        startActivity(AppManagerActivity.class);
                         break;
                 }
             }
