@@ -68,4 +68,4 @@ public class ScanVirusAdapter extends BaseAdapter {
         holder.mAppIconImgv.setImageDrawable(scanAppInfo.appicon);
         return view;
     }
-}
+}  //

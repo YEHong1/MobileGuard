@@ -10,6 +10,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_margin="5dp"/>
+
     <TextView
         android:id="@+id/tv_appname"
         style="@style/textview16sp"
@@ -17,6 +18,7 @@
         android:layout_toRightOf="@+id/imgv_appicon"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"/>
+
     <ImageView
         android:id="@+id/imgv_lock"
         android:layout_width="wrap_content"

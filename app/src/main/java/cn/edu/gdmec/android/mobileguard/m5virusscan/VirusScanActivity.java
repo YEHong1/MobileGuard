@@ -131,4 +131,4 @@ public class VirusScanActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-}
+}  //

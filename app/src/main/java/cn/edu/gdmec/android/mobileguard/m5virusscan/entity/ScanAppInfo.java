@@ -11,4 +11,4 @@ public class ScanAppInfo {
     public String packagename;
     public String description;
     public Drawable appicon;
-}
+}  //

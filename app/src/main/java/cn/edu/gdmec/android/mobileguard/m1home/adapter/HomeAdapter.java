@@ -38,4 +38,4 @@ public class HomeAdapter extends BaseAdapter{
         return view1;
 
     }
-}
+}  //

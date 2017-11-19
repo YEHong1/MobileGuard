@@ -49,6 +49,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:text="全盘扫描"/>
+
         <TextView
             style="@style/textview14sp"
             android:layout_below="@+id/tv_allscan"
@@ -56,6 +57,7 @@
             android:layout_toRightOf="@+id/imgv_quickscon"
             android:layout_marginTop="10dp"
             android:text="全面扫描手机，杀毒更彻底"/>
+
         <View
             android:layout_width="13dp"
             android:layout_height="20dp"
@@ -63,6 +65,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1.0px"
