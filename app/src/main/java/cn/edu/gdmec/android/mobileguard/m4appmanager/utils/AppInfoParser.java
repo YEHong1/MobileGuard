@@ -1,6 +1,7 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -15,48 +16,39 @@ import java.util.Date;
 import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
-
 /**
- * Created by Administrator on 2017/11/11 0011.
+ * Created by Lee on 2017/11/10.
  */
 
 public class AppInfoParser {
-
     public static List<AppInfo> getAppInfos(Context context){
-        PackageManager pm=context.getPackageManager();
-        List<PackageInfo> packInfos=pm.getInstalledPackages(0);
-        List<AppInfo> appInfos=new ArrayList<AppInfo>();
-        for (PackageInfo packInfo:packInfos){
-            AppInfo appInfo=new AppInfo();
-            String packname=packInfo.packageName;
-            appInfo.packageName=packname;
-            //
-
-            Drawable icon=packInfo.applicationInfo.loadIcon(pm);
-            appInfo.icon=icon;
-            String appname=packInfo.applicationInfo.loadLabel(pm).toString();
-            appInfo.appName=appname;
-            //应用程序apk包的路径
-            String apkpath=packInfo.applicationInfo.sourceDir;
-            appInfo.apkPath=apkpath;
-            File file=new File(apkpath);
-            long appSize=file.length();
-            appInfo.appSize=appSize;
-            //应用程序安装的位置
-            String mVersion=packInfo.versionName;
-            appInfo.mVersion=mVersion;
-            //版本号
-            appInfo.InstallTime = new Date(packInfo.firstInstallTime).toLocaleString();
-            int flags=packInfo.applicationInfo.flags;
+        PackageManager pm = context.getPackageManager();
+        List<PackageInfo> packInfos = pm.getInstalledPackages(0);
+        List<AppInfo> appinfos = new ArrayList<AppInfo>();
+        for(PackageInfo packInfo:packInfos){
+            AppInfo appinfo = new AppInfo();
+            String packname = packInfo.packageName;
+            appinfo.packageName = packname;
+            Drawable icon = packInfo.applicationInfo.loadIcon(pm);
+            appinfo.icon = icon;
+            String appname = packInfo.applicationInfo.loadLabel(pm).toString();
+            appinfo.appName = appname;
+            String apkpath = packInfo.applicationInfo.sourceDir;
+            appinfo.apkPath = apkpath;
+            File file = new File(apkpath);
+            long appSize = file.length();
+            appinfo.appSize = appSize;
+            String version = packInfo.versionName;
+            appinfo.version = version;
+            appinfo.InstallTime = new Date(packInfo.firstInstallTime).toLocaleString();
             try {
-                PackageInfo packinfo = pm.getPackageInfo(packname,
-                        PackageManager.GET_SIGNATURES);
+                PackageInfo packinfo = pm.getPackageInfo(packname, PackageManager.GET_SIGNATURES);
                 byte[] ss = packinfo.signatures[0].toByteArray();
                 CertificateFactory cf = CertificateFactory.getInstance("X509");
                 X509Certificate cert = (X509Certificate) cf.generateCertificate(
                         new ByteArrayInputStream(ss));
                 if (cert!=null){
-                    appInfo.certificate=cert.getIssuerDN().toString();
+                    appinfo.signature=cert.getIssuerDN().toString();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -66,30 +58,40 @@ public class AppInfoParser {
                 packinfo1 = pm.getPackageInfo(packname, PackageManager.GET_PERMISSIONS);
                 if (packinfo1.requestedPermissions!=null){
                     for (String pio : packinfo1.requestedPermissions){
-                        appInfo.permission= appInfo.permission+pio+"\n";
+                        appinfo.permissions= appinfo.permissions+pio+"\n";
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            if ((ApplicationInfo.FLAG_EXTERNAL_STORAGE & flags)!=0){
-                //外部存储
-                appInfo.isInRoom=false;
-
-            }else{
-                appInfo.isInRoom=true;
-
+            //Activity活动新加代码
+            try{
+                PackageInfo packinfo2 = pm.getPackageInfo(packname, PackageManager.GET_ACTIVITIES);
+                ActivityInfo[] act =packinfo2.activities;
+                List<ActivityInfo> a=new ArrayList<>();
+                if(act != null){
+                    for(ActivityInfo str : act){
+                        a.add(str);
+                        appinfo.activityName = a.toString();
+                    }
+                }
+            }catch(Exception e){
+                e.printStackTrace();
             }
-            if ((ApplicationInfo.FLAG_SYSTEM&flags)!=0){
-                appInfo.isUserApp=false;
+            int flags = packInfo.applicationInfo.flags;
+            if((ApplicationInfo.FLAG_EXTERNAL_STORAGE & flags)!=0){
+                appinfo.isInRoom = false;
             }else{
-                appInfo.isUserApp=true;
+                appinfo.isInRoom = true;
             }
-            appInfos.add(appInfo);
-            appInfo=null;
-
+            if((ApplicationInfo.FLAG_SYSTEM&flags)!=0){
+                appinfo.isUserApp=false;
+            }else{
+                appinfo.isUserApp = true;
+            }
+            appinfos.add(appinfo);
+            appinfo = null;
         }
-        return appInfos;
+        return appinfos;
     }
 }
