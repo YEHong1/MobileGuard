@@ -17,6 +17,11 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <!--杀毒模块-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--缓存清理-->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
 
     <application
         android:name=".App"
@@ -27,19 +32,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- <activity android:name=".SplashActivity"> -->
-
-
-        <!-- </activity> -->
+         <activity android:name=".SplashActivity">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
         <activity
             android:name=".m1home.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme">
-            <intent-filter>
+<!--            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".m2theftgurad.utils.Setup1Activity" />
         <activity android:name=".m2theftgurad.utils.Setup2Activity" />
@@ -117,6 +124,9 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".m5virusscan.VirusScanSpeedActivity" />
         <activity android:name=".m5virusscan.VirusScanActivity"></activity>
+        <!--缓存清理2017.11.20-->
+        <activity android:name=".m6cleancache.CacheClearListActivity"/>
+        <activity android:name=".m6cleancache.CleanCacheActivity"/>
     </application>
 
 </manifest>
