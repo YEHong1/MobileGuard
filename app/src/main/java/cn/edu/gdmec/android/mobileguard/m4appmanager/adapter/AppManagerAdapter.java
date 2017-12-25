@@ -19,10 +19,10 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.DensityUtil;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.EngineUtils;
 
 /**
- * Created by Lee on 2017/11/10.
+ * Created by Administrator on 2017/11/7.
  */
 
-public class AppManagerAdapter extends BaseAdapter{
+public class AppManagerAdapter extends BaseAdapter {
     private List<AppInfo> UserAppInfos;
     private List<AppInfo> SystemAppInfos;
     private Context context;
@@ -164,12 +164,12 @@ public class AppManagerAdapter extends BaseAdapter{
                     EngineUtils.uninstallApplication(context,appInfo);
                     break;
                 case R.id.tv_aboutapp:
-                    EngineUtils.AboutSign(context,appInfo);
+                    EngineUtils.showApplicationInfo(context,appInfo);
                     break;
                 case R.id.tv_activityapp:
-                    EngineUtils.getActivity(context,appInfo);
+                    EngineUtils.showApplicationActivities(context,appInfo);
                     break;
             }
         }
     }
-}  //
+}

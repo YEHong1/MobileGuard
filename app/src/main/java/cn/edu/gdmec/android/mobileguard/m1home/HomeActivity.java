@@ -12,17 +12,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.LostFindActivity;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.dialog.InterPasswordDialog;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.dialog.SetUpPasswordDialog;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.receiver.MyDeviceAdminReceiver;
-import cn.edu.gdmec.android.mobileguard.m2theftgurad.utils.MD5Utils;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetupPasswordDialog;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReceiver;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanActivity;
 import cn.edu.gdmec.android.mobileguard.m6cleancache.CacheClearListActivity;
+import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.TrafficMonitoringActivity;
+import cn.edu.gdmec.android.mobileguard.m9advancedtools.AdvancedToolsActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
@@ -64,6 +67,12 @@ public class HomeActivity extends AppCompatActivity {
                     case 4:
                         startActivity(CacheClearListActivity.class);
                         break;
+                    case 6:
+                        startActivity(TrafficMonitoringActivity.class);
+                        break;
+                    case 7:
+                        startActivity(AdvancedToolsActivity.class);
+                        break;
                 }
             }
         });
@@ -96,8 +105,8 @@ public class HomeActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
     private void showSetUpPswdDialog(){
-        final SetUpPasswordDialog setUpPasswordDialog = new SetUpPasswordDialog(HomeActivity.this);
-        setUpPasswordDialog.setCallBack(new SetUpPasswordDialog.MyCallBack(){
+        final SetupPasswordDialog setUpPasswordDialog = new SetupPasswordDialog(HomeActivity.this);
+        setUpPasswordDialog.setCallBack(new SetupPasswordDialog.MyCallBack(){
             @Override
             public void ok(){
                 String firstPwsd = setUpPasswordDialog.mFirstPWDET.getText().toString().trim();
@@ -166,4 +175,4 @@ public class HomeActivity extends AppCompatActivity {
         }
         return true;
     }
-}  //
+}

@@ -1,17 +1,14 @@
 package cn.edu.gdmec.android.mobileguard.m3communicationguard.entity;
 
 /**
- * Created by Administrator on 2017/10/30 0030.
+ * Created by Administrator on 2017/10/31 0031.
  */
 
 public class BlackContactInfo {
     public String phoneNumber;
-//黑名单号码
     public String contactName;
-    //黑名单联系人名称
     public int mode;
-//    黑名单拦截方式
-    public String mytype;
+    public String blackType;
     public String getModeString(int mode){
         switch (mode){
             case 1:
